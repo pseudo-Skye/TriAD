@@ -5,9 +5,16 @@ This paper addresses key challenges in time series anomaly detection (TSAD): **(
 ![image](https://github.com/pseudo-Skye/TriAD/assets/117964124/dcacb90f-a395-42cf-866c-a75600d40c5e)
 
 ## Overview
-1. Download the [UCR dataset](https://github.com/pseudo-Skye/Data-Smith/blob/master/TSAD%20Dataset/cleaned_dataset/cleaned_dataset.zip) ready for use, and put the dataset under the directory as **./dataset/ucr_data.pt**
+1. Download the [UCR dataset](https://github.com/pseudo-Skye/Data-Smith/blob/master/TSAD%20Dataset/cleaned_dataset/cleaned_dataset.zip) ready for use. Next, run **preprocess_data.py**. This script will partition 10% of the training data as the validation set and create a directory containing the dataset at **./dataset/ucr_data.pt** in the following format:
+   ```
+   {'train_data': train_x,
+   'valid_data': valid_x,
+   'test_data': test_x,
+   'test_labels': test_y}
+   ```
+
 2. Simply run **train.py** to train TriAD over the whole dataset. The results are saved as **tri_res.pt** (a demo version provided) and wrapped in a data frame. 
-3. To get a summary of both the tri-window and single window detection **accuracy** (among the 250 datasets, how many are successfully detected by tri/single window), simply run **single_window_selection.py**. The results will be saved as **merlin_win.pt**, which can generate the [Merlin](https://www.cs.ucr.edu/%7Eeamonn/MERLIN_Long_version_for_website.pdf) readable files by **discord_data_prep.py**. By restricting our focus to the single window, we force Merlin to scan around the window to find anomalies. 
+3. To get a summary of both the tri-window and single window detection **accuracy** (among the 250 datasets, how many are successfully detected by tri/single window), simply run **single_window_selection.py**. The results will be saved as **merlin_win.pt**, which can generate the [Merlin](https://github.com/pseudo-Skye/Time-Matters/blob/main/anomaly%20detection/MERLIN%20(ICDM%2020).md) readable files by **discord_data_prep.py**. By restricting our focus to the single window, we force Merlin to scan around the window to find anomalies. 
 4. To get the summary of detection results of the shortest 62 datasets, simply run **shortest_62.py**.
 5. The visualization of detection results and point-wise metrics are shown in the directory **./eval_demo**. UCR 025 and UCR 150 are used as demo examples, the **test_xxx.txt** contains the Merlin search results, where the columns represent **search_length**, **start_index**, **end_index**, and **discord_distance**. Install the [affiliation metrics](https://github.com/ahstat/affiliation-metrics-py), and run **convert_pw.py**:
 
