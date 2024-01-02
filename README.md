@@ -1,3 +1,7 @@
+<p align="center" width="50%">
+<img width="25%" src = "https://github.com/pseudo-Skye/TriAD/assets/117964124/d7bee644-3dbc-4547-ad78-a2fe6a0139e5">
+</p>
+
 # Unraveling the 'Anomaly' in Time Series Anomaly Detection: A Self-supervised Tri-domain Solution
 
 This paper addresses key challenges in time series anomaly detection (TSAD): **(1)** the scarcity of labels, and **(2)** the diversity in anomaly types and lengths. Furthermore, it contributes to the ongoing debate on the effectiveness of deep learning models in TSAD, highlighting the problems of flawed benchmarks and ill-posed evaluation metrics. This study stands out as **the first to reassess the potential of deep learning in TSAD**, employing both **rigorously designed datasets (UCR Archive)** and **evaluation metrics (PA%K and affiliation)**. ([paper](https://arxiv.org/pdf/2311.11235.pdf))
